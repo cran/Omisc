@@ -44,7 +44,7 @@ BCa<-function(Boot,data,alphalower=.025,alphaupper=.975, accelleration="jack", F
   while(j < length(Theta)+1){
     bcalphalower[j]<-pnorm(z0[j]+(z0[j]+zalower)/(1+a[j]*(z0[j]+zalower)))
     bcalphaupper[j]<-pnorm(z0[j]+(z0[j]+zaupper)/(1+a[j]*(z0[j]+zaupper)))
-    BCafinal[[j]]<-quantile(Boot[,j],c(bcalphalower[j], bcalphaupper[j]))
+    BCafinal[[j]]<-quantile(Boot[,j],c(bcalphalower[j], bcalphaupper[j]), type=6)
     j<-j+1
   }
   BCafinal<-do.call(rbind,BCafinal)

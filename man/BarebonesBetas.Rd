@@ -4,10 +4,14 @@
 \alias{BarebonesBetas}
 \title{BarebonesBetas}
 \usage{
-BarebonesBetas(data)
+BarebonesBetas(data, Y = NULL, RHS = NULL)
 }
 \arguments{
 \item{data}{Data to be analyzed. Dependent variable MUST BE THE FIRST VARIABLE.}
+
+\item{Y}{optional. The dependent variable}
+
+\item{RHS}{option. The right hand side of the model, in R's model formulation (i.e., ~ X1+X2+etc)}
 }
 \value{
 A vector of beta coefficients

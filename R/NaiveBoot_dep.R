@@ -11,14 +11,14 @@
 #'
 #' @examples X<-TestData()
 #' Y<-NaiveBoot(X)
-NaiveBoot<-function(data, B = 1000, groups=NULL, keepgroups=F, size=1){ #Bootstrap function, returns a list of bootstrap resamples.
+NaiveBoot_dep<-function(data, B = 1000, groups=NULL, keepgroups=F, size=1){ #Bootstrap function, returns a list of bootstrap resamples.
   if (is.null(groups)){
     groups<-rep(1,nrow(data)) #If there aren't any groups creates a dummy group variable that will select all observations each time
-    usedata<-data #the data to be used
+    sampleframe<-data #the data to be used
   } else {
     groupname<-groups
     groups<-data[,groups] #grabs the grouping variable
-    usedata<-data[,names(data) !=groupname] #creates a dataset that is all variables except the grouping variable
+    sampleframe<-data[,names(data) !=groupname] #creates a dataset that is all variables except the grouping variable
   }
   if(keepgroups){ #creates a new grouping variable that will be the correct length for the new dataset
     lengths<-by(groups,groups,length)
@@ -29,7 +29,7 @@ NaiveBoot<-function(data, B = 1000, groups=NULL, keepgroups=F, size=1){ #Bootstr
 
   i<-1 #couldn't figure out a way to do this without a loop :/
   while(i<B+1){
-    bootstrap<-by(usedata,groups,bootsample,size) #Gets null bootstrap samples
+    bootstrap<-by(sampleframe,groups,bootsample,size) #Gets null bootstrap samples
     bootstrap<-do.call(rbind,bootstrap) #creates diagonalized bootstrap samples
     if(keepgroups){
       bootstrap<-cbind(bootstrap,groupingVar) #adds the groups back to the dataset when finished

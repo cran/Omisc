@@ -9,6 +9,5 @@
 #' @examples X<-TestData()
 #' Y<-bootsample(X)
 bootsample<-function(data, size=1){
-  data<-data[sample.int(nrow(data),nrow(data)*size, replace = T),]
-  return(data)
+  return(data[sample.int(nrow(data),nrow(data)*size, replace = T),])
 }
