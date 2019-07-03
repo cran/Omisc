@@ -25,7 +25,7 @@ uniboot(data, B = 1000, groups = NULL, keepgroups = F, size = 1,
 
 \item{use}{The missing data method for cor. Default is R's default "everything".}
 
-\item{standardized}{should the resampled data be standardized? The default is TRUE. This is computationally more efficient (the data are standardized as a step during the diagonalization procedure)}
+\item{standardized}{should the resampled data be standardized? The default is TRUE. This is computationally more efficient (the data are standardized as a step during the diagonalization procedure).}
 }
 \value{
 A list of bootstrap samples

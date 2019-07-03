@@ -9,7 +9,7 @@ lbind(index, alist, n)
 \arguments{
 \item{index}{a list of indexes. This should count the number of items to return in the final list}
 
-\item{alist}{a list of objects to be passed to cbind. They should be grouped according to which objects will be combined (e.g., if 1,2,3 are to be passed to cbind then they should be adjacent to eachother).}
+\item{alist}{a list of objects to be passed to rbind. They should be grouped according to which objects will be combined (e.g., if 1,2,3 are to be passed to cbind then they should be adjacent to eachother).}
 
 \item{n}{The number of objects in each group. Currently each group must consist of the same number of objects.}
 }
@@ -17,7 +17,7 @@ lbind(index, alist, n)
 a list
 }
 \description{
-lbind is meant to be used in conjuction with lapply to combine elements of lists using cbind.
+lbind is meant to be used in conjuction with lapply to combine elements of lists using rbind.
 }
 \examples{
 alist<-list(c(1,1),c(2,2),c(3,3))

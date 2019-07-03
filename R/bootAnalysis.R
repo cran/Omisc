@@ -13,7 +13,7 @@
 #' boots<-uniboot(data, 1000, "Rs", TRUE, .5, NULL)
 #' results<-bootAnalysis(boots, cbind, FUN=DFanalysis, 1,2,3,TRUE,FALSE,FALSE,TRUE,FALSE)
 #'
-bootAnalysis<-function(boot, collapse, FUN, ...){
+bootAnalysis<-function(boot, collapse=cbind, FUN, ...){
   results<-lapply(boot, FUN, ...)
   if(!is.null(collapse)){
     results<-do.call(collapse,results)

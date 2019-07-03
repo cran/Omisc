@@ -23,7 +23,7 @@ NaiveBoot<-function(data, B = 1000, groups=NULL, keepgroups=F, size=1){
     data<-data[,names(data)!=groupname]
     resamples<-by(data, groups, as.data.frame, simplify = F)
     resamples<-rep(resamples,B)
-    resamples<-lapply(resamples,unibootsample,size)
+    resamples<-lapply(resamples,bootsample,size)
     if(keepgroups){
       lengths<-by(groups,groups,length)*size
       groupingVar<-by(groups,groups,unique)

@@ -17,7 +17,7 @@ standardBootIntervals(boot, lower = 0.025, upper = 0.975)
 A matrix of the mean, median, min, max, lower and upper CI values
 }
 \description{
-This returns the quantiles of the bootstrap samples specified by the user. The quantiles uses the type=6 argument of the quantile function, which appears to function best.
+This returns the quantiles of the bootstrap samples specified by the user. The quantiles uses the type=4 argument of the quantile function, which appears to function best.
 }
 \examples{
 data<-DFSimulated()

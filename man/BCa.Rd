@@ -4,11 +4,11 @@
 \alias{BCa}
 \title{BCa}
 \usage{
-BCa(Boot, data, alphalower = 0.025, alphaupper = 0.975,
+BCa(boot, data, alphalower = 0.025, alphaupper = 0.975,
   accelleration = "jack", FUN, ...)
 }
 \arguments{
-\item{Boot}{A vector of bootstrap estimates of Theta}
+\item{boot}{A vector of bootstrap estimates of Theta}
 
 \item{data}{The data that was analyzed via the bootstrap}
 
@@ -30,8 +30,8 @@ BCa
 }
 \examples{
 data<-DFSimulated()
-boots<-NaiveBoot(data, groups="Rs", keepgroups=TRUE)
-boots<-bootAnalysis(boots, cbind, DFanalysis, 1,2,3, robust=FALSE)
-BCa(boots, data, .025,.975, accelleration="bootstrap", DFanalysis, 1,2,3, robust=FALSE)
+boot<-NaiveBoot(data, groups="Rs", keepgroups=TRUE)
+boot<-bootAnalysis(boot, cbind, DFanalysis, 1,2,3, robust=FALSE)
+BCa(boot, data, .025,.975, accelleration="bootstrap", DFanalysis, 1,2,3, robust=FALSE)
 
 }

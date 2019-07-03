@@ -10,7 +10,7 @@
 #' @param HIcor If a hypothesis imposed correlation matrix is to be used, this argument takes a list of hypothesized correlation matrices. IT MUST BE A LIST OF ONE OR MORE MATRICES. Multiple matrices can be entered in the case of grouped data (one for each group). If the nil-null correlation is to be used an identity matrix can be entered here (the same size as the appropriate correlation matrix).
 #' @param samplefrom Takes one of either "group" or "whole". When doing bootstrapping of grouped data this tells uniboot if the whole sample should be used as the sampling frame for each group (whole), or not (group). "group" should be used unless it is believed that all groups share the same underlying marginal distribution for each variable (e.g., the same mean and variance in the case of normally distributed data).
 #' @param use The missing data method for cor. Default is R's default "everything".
-#' @param standardized should the resampled data be standardized? The default is TRUE. This is computationally more efficient (the data are standardized as a step during the diagonalization procedure)
+#' @param standardized should the resampled data be standardized? The default is TRUE. This is computationally more efficient (the data are standardized as a step during the diagonalization procedure).
 #'
 #' @return A list of bootstrap samples
 #' @export
@@ -44,8 +44,7 @@ uniboot<-function(data, B = 1000, groups=NULL, keepgroups=F, size=1, HIcor=NULL,
 
   } else {
     groupname<-groups
-    groupname<-groups
-    groups<-data[,groups]
+    groups<-data[,groupname]
     n<-length(unique(groups))
     data<-data[,names(data)!=groupname]
     if(standardized==F){
@@ -53,9 +52,9 @@ uniboot<-function(data, B = 1000, groups=NULL, keepgroups=F, size=1, HIcor=NULL,
     }
     if(is.null(HIcor)){
       if(standardized==T){
-        cc<-list(cholcors(data, use=use))
+        cc<-by(data,groups,cholcors, use=use)
       } else{
-        cc<-list(cholcovs(data, use=use))
+        cc<-by(data,groups,cholcovs, use=use)
       }
     } else{
       cc<-lapply(HIcor, chol)

@@ -1,6 +1,6 @@
 #' BCa
 #'
-#' @param Boot A vector of bootstrap estimates of Theta
+#' @param boot A vector of bootstrap estimates of Theta
 #' @param data The data that was analyzed via the bootstrap
 #' @param alphalower The lower alpha for CI creation
 #' @param alphaupper The upper alpha for CI creation
@@ -12,39 +12,42 @@
 #' @export
 #'
 #' @examples data<-DFSimulated()
-#' boots<-NaiveBoot(data, groups="Rs", keepgroups=TRUE)
-#' boots<-bootAnalysis(boots, cbind, DFanalysis, 1,2,3, robust=FALSE)
-#' BCa(boots, data, .025,.975, accelleration="bootstrap", DFanalysis, 1,2,3, robust=FALSE)
+#' boot<-NaiveBoot(data, groups="Rs", keepgroups=TRUE)
+#' boot<-bootAnalysis(boot, cbind, DFanalysis, 1,2,3, robust=FALSE)
+#' BCa(boot, data, .025,.975, accelleration="bootstrap", DFanalysis, 1,2,3, robust=FALSE)
 #'
-BCa<-function(Boot,data,alphalower=.025,alphaupper=.975, accelleration="jack", FUN, ...){
+BCa<-function(boot,data,alphalower=.025,alphaupper=.975, accelleration="jack", FUN, ...){
   Theta<-FUN(data,...)
-  Boot<-as.matrix(Boot)
-  if(ncol(Boot)>nrow(Boot)){
-    Boot<-t(Boot)
+  boot<-as.matrix(boot)
+  if(ncol(boot)>nrow(boot)){
+    boot<-t(boot)
   }
-  varnames<-colnames(Boot)
-  z0<-c()
-  i<-1
-  while(i < length(Theta)+1){
-    z0[i]<-sum(Boot[,i]<Theta[i])/nrow(Boot)
-    z0[i]<-qnorm(z0[i])
-    i<-i+1
+  varnames<-colnames(boot)
+  i<-matrix(1:length(Theta))
+  zfunc<-function(i,boot,Theta){
+       z0<-sum(boot[,i]<Theta[i])/nrow(boot)
+       z0<-qnorm(z0)
+       return(z0)
   }
+  z0<-apply(i,1,zfunc,boot,Theta)
+
   if(accelleration=="jack"){
     a<-ajack(data, FUN, ...)
   } else if(accelleration =="bootstrap"){
-    a<-aboot(Boot)
+    a<-aboot(boot)
   }
+
   zalower<-qnorm(alphalower)
   zaupper<-qnorm(alphaupper)
   bcalphalower<-c()
   bcalphaupper<-c()
   BCafinal<-list()
+
   j<-1
   while(j < length(Theta)+1){
     bcalphalower[j]<-pnorm(z0[j]+(z0[j]+zalower)/(1+a[j]*(z0[j]+zalower)))
     bcalphaupper[j]<-pnorm(z0[j]+(z0[j]+zaupper)/(1+a[j]*(z0[j]+zaupper)))
-    BCafinal[[j]]<-quantile(Boot[,j],c(bcalphalower[j], bcalphaupper[j]), type=6)
+    BCafinal[[j]]<-quantile(boot[,j],c(bcalphalower[j], bcalphaupper[j]), type=6)
     j<-j+1
   }
   BCafinal<-do.call(rbind,BCafinal)

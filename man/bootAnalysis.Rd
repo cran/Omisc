@@ -4,7 +4,7 @@
 \alias{bootAnalysis}
 \title{bootAnalysis}
 \usage{
-bootAnalysis(boot, collapse, FUN, ...)
+bootAnalysis(boot, collapse = cbind, FUN, ...)
 }
 \arguments{
 \item{boot}{A list of bootstrap resamples from NaiveBoot or uniboot.}
