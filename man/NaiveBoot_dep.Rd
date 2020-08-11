@@ -4,8 +4,7 @@
 \alias{NaiveBoot_dep}
 \title{The Naive Bootstrap}
 \usage{
-NaiveBoot_dep(data, B = 1000, groups = NULL, keepgroups = F,
-  size = 1)
+NaiveBoot_dep(data, B = 1000, groups = NULL, keepgroups = F, size = 1)
 }
 \arguments{
 \item{data}{data to be bootstrapped}

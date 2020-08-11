@@ -4,8 +4,15 @@
 \alias{BCa}
 \title{BCa}
 \usage{
-BCa(boot, data, alphalower = 0.025, alphaupper = 0.975,
-  accelleration = "jack", FUN, ...)
+BCa(
+  boot,
+  data,
+  alphalower = 0.025,
+  alphaupper = 0.975,
+  accelleration = "jack",
+  FUN,
+  ...
+)
 }
 \arguments{
 \item{boot}{A vector of bootstrap estimates of Theta}

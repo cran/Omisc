@@ -4,8 +4,7 @@
 \alias{DFSimulatedChisqNew}
 \title{DFSimulatedChisqNew}
 \usage{
-DFSimulatedChisqNew(MZ = 250, DZ = 250, a2 = 0.3, c2 = 0.3,
-  df = 5)
+DFSimulatedChisqNew(MZ = 250, DZ = 250, a2 = 0.3, c2 = 0.3, df = 5)
 }
 \arguments{
 \item{MZ}{Number of MZ twins to simulate}

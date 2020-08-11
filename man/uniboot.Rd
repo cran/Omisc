@@ -4,9 +4,17 @@
 \alias{uniboot}
 \title{Univariate Bootstrap}
 \usage{
-uniboot(data, B = 1000, groups = NULL, keepgroups = F, size = 1,
-  HIcor = NULL, samplefrom = "group", use = "everything",
-  standardized = T)
+uniboot(
+  data,
+  B = 1000,
+  groups = NULL,
+  keepgroups = F,
+  size = 1,
+  HIcor = NULL,
+  samplefrom = "group",
+  use = "everything",
+  standardized = T
+)
 }
 \arguments{
 \item{data}{The data frame to be resampled}

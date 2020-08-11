@@ -4,8 +4,7 @@
 \alias{TestData}
 \title{TestData}
 \usage{
-TestData(nobs = 1000, intercept = 0, beta = 5, meanX = 0,
-  sdX = 1, sdYerr = 1)
+TestData(nobs = 1000, intercept = 0, beta = 5, meanX = 0, sdX = 1, sdYerr = 1)
 }
 \arguments{
 \item{nobs}{Number of observations, defaults to 1000}

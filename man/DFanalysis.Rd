@@ -4,8 +4,18 @@
 \alias{DFanalysis}
 \title{DFanalysis}
 \usage{
-DFanalysis(data = NULL, proband, sibling, Rs, RK = T, robust = T,
-  DE = T, betasonly = F, typicalSE = F)
+DFanalysis(
+  data = NULL,
+  proband,
+  sibling,
+  Rs,
+  Ds = NULL,
+  RK = T,
+  robust = T,
+  DE = T,
+  betasonly = F,
+  typicalSE = F
+)
 }
 \arguments{
 \item{data}{A dataframe. This is not necessary as the variables can be passed directly via the other arguments.}
@@ -15,6 +25,8 @@ DFanalysis(data = NULL, proband, sibling, Rs, RK = T, robust = T,
 \item{sibling}{The right hand side version of proband. This would be the matched sibling scores.}
 
 \item{Rs}{This is the vector of relatedness coefficients}
+
+\item{Ds}{A vector of dominance coefficients. 1 for MZ twins, .25 for DZ twins and full siblings. The default is null, and no value should be provided if using the ACE model. This should only have a non-null value when fitting an ADE model. There is an RK version of this model, however it is not based on published work. The RK version uses double entered (and mean centered) data in order to drop the intercept term and the extraneous regression coefficient (both of which can be constrained to 0 when the phenotypic mean is 0). Initial simulations suggest that this formulation provides accurate parameter estimates, however the original formulation can be used by simply setting RK=F. It is assumed that, if RK=T, that DE=T (i.e., do NOT double enter data prior to analysis if using the ADE model).}
 
 \item{RK}{Use the Rodgers and Kohler simplified version of the DF model (recommended). Data should not be double entered prior to analysis.}
 
@@ -30,7 +42,7 @@ DFanalysis(data = NULL, proband, sibling, Rs, RK = T, robust = T,
 The results from MyLM
 }
 \description{
-DFanalysis
+There are three possible models to be fit. The default is the Rodgers and Kohler formulation of the DF model (Rodgers & Kohler, 2005). The non-default (if RK=F), is to fit the original DeFries-Fulker model. The third option is only used when dominance coefficients are provided, and is based on the formulation by Waller (Waller 1994).
 }
 \examples{
 TwinData<-DFSimulated(2000,2000,.3,.3)

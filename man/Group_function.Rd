@@ -4,8 +4,16 @@
 \alias{Group_function}
 \title{Grouping_function}
 \usage{
-Group_function(data = NULL, x, levels, func = mean, center = FALSE,
-  nested = TRUE, append = FALSE, funcName = "Mean")
+Group_function(
+  data = NULL,
+  x,
+  levels,
+  func = mean,
+  center = FALSE,
+  nested = TRUE,
+  append = FALSE,
+  funcName = "Mean"
+)
 }
 \arguments{
 \item{data}{a data frame with the x and level variables included. Default is NULL.}
