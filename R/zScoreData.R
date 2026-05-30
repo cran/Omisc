@@ -8,7 +8,7 @@
 #' @examples X<-data.frame(X=c(1:4),Y=c(6:9))
 #' zScoreData(X)
 zScoreData<-function(data){
-  reps<-ncol(data)
-  data<-apply(data,2,zScore,reps)
+  times<-ncol(data)
+  data<-apply(data,2,zScore,times)
   return(data)
 }

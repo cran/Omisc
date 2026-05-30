@@ -9,5 +9,5 @@
 #' @examples X<-c(1:10)
 #' resample(X,.5)
 resample<-function(X,size){ #a resampling function. Accounts for R's surprise with the sample() function
-  return(X[sample.int(length(X),length(X)*size, replace=T)])
+  return(X[sample.int(length(X),length(X)*size, replace=TRUE)])
 }

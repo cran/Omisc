@@ -4,12 +4,10 @@
 \alias{cholcors}
 \title{cholcors}
 \usage{
-cholcors(X, use = "everything")
+cholcors(X)
 }
 \arguments{
 \item{X}{A matrix of data.}
-
-\item{use}{the missing data type to use for the correlation. Default is R's default "everything".}
 }
 \value{
 This function returns the cholesky decomposition of the correlation matrix of the data

@@ -2,7 +2,7 @@
 % Please edit documentation in R/standardBootIntervals.R
 \name{standardBootIntervals}
 \alias{standardBootIntervals}
-\title{standardBootIntervals}
+\title{Title}
 \usage{
 standardBootIntervals(boot, lower = 0.025, upper = 0.975)
 }
@@ -17,11 +17,11 @@ standardBootIntervals(boot, lower = 0.025, upper = 0.975)
 A matrix of the mean, median, min, max, lower and upper CI values
 }
 \description{
-This returns the quantiles of the bootstrap samples specified by the user. The quantiles uses the type=4 argument of the quantile function, which appears to function best.
+Title
 }
 \examples{
 data<-DFSimulated()
-boots<-NaiveBoot(data, groups="Rs", keepgroups=TRUE, B=100)
+boots<-NaiveBoot(data, groups="Rs", keepgroups=TRUE)
 boots<-bootAnalysis(boots, cbind, DFanalysis,1,2,3,TRUE,FALSE,TRUE,TRUE,FALSE)
 apply(boots,1, standardBootIntervals)
 DFanalysis(data,1,2,3)

@@ -2,22 +2,22 @@
 % Please edit documentation in R/zScore.R
 \name{zScore}
 \alias{zScore}
-\title{Title}
+\title{zScore}
 \usage{
-zScore(X, reps = 1)
+zScore(X, times)
 }
 \arguments{
-\item{X}{The vector to be turned into z scores}
+\item{X}{vector to be converted to z scores}
 
-\item{reps}{The number of reps the vector is to be repeated. This will only be used in univariate bootstrapping. The default is 1.}
+\item{times}{exponent controlling the denominator scaling}
 }
 \value{
-A vector of z scores.
+Returns a vector of z scores
 }
 \description{
-Title
+zScore
 }
 \examples{
 X<-c(1:10)
-zScore(X)
+zScore(X, times=1)
 }

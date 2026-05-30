@@ -3,8 +3,7 @@
 #' @param data A data frame
 #' @param Y The name or column number of the Y variable
 #' @param X The name(s) or column number(s) of the X variables
-#' @import MASS
-#' @import stats
+#' @importFrom MASS ginv
 #'
 #' @return A vector of unstandardized beta weights
 #' @export

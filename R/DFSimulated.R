@@ -6,7 +6,7 @@
 #' @param c2 Shared environment (proportion of variance)
 #'
 #' @return A dataframe
-#' @import stats
+#' @importFrom stats rnorm
 #' @export
 #'
 #' @examples TwinData<-DFSimulated(200,200,.3,.3)

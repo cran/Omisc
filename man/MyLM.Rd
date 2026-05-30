@@ -4,7 +4,7 @@
 \alias{MyLM}
 \title{MyLM}
 \usage{
-MyLM(Y, X, robust = F, betasonly = F, typicalSE = T)
+MyLM(Y, X, robust = FALSE, betasonly = FALSE, typicalSE = TRUE)
 }
 \arguments{
 \item{Y}{The Y variable}

@@ -10,7 +10,7 @@
 #'
 #' @examples X<-DFSimulated(100,100,.3,.3)
 #' Y<-RK(X[,1],X[,2],X[,3])
-RK<-function(proband, sibling, Rs, DE=T){ #Creates a dataset that can be used for simplified DF analysis
+RK<-function(proband, sibling, Rs, DE=TRUE){ #Creates a dataset that can be used for simplified DF analysis
   if(DE){
     data<-doubleEnter(proband,sibling, Rs)
     proband<-data$proband

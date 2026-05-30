@@ -7,7 +7,7 @@
 #' @param df Total degrees of freedom for the Chi-Square variable
 #'
 #' @return A dataframe of Chi-Square distributed outcome observations for MZ and DZ twins
-#' @import stats
+#' @importFrom stats rchisq
 #' @export
 #'
 #' @examples TwinData<-DFSimulatedChisq(200,200,.3,.3, 10)

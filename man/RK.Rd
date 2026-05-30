@@ -4,7 +4,7 @@
 \alias{RK}
 \title{RK}
 \usage{
-RK(proband, sibling, Rs, DE = T)
+RK(proband, sibling, Rs, DE = TRUE)
 }
 \arguments{
 \item{proband}{column name or number of the proband}

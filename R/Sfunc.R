@@ -10,7 +10,7 @@
 #'
 #' @examples print("Nah")
 Sfunc<-function(X,e){ #function for calculating the matrices for the Kohler Rodgers SE
-  X<-matrix(X,nrow=2,byrow=F)
+  X<-matrix(X,nrow=2,byrow=FALSE)
   as.matrix(e)
   Stemp<-(crossprod(X,e)%*%crossprod(e,X))
   return(Stemp)

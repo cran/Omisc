@@ -13,7 +13,8 @@
 #'
 #' @return a list of the "a" adjusted covariance matrix, Sa, the tau, ga, and the number of interations.
 #' @export
-#' @import psych
+#' @importFrom psych tr
+#' @importFrom MASS ginv
 #'
 #' @examples
 #' require(Omisc)
